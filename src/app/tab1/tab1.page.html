@@ -1,0 +1,84 @@
+<ion-header no-border>
+    <ion-toolbar color="tertiary">
+      <ion-buttons slot="start">
+        <ion-button (click)="toggleMenu()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  <ion-title class="ion-text-capitalize">
+        namao
+  </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarPopo($event)">
+        <ion-icon name="contact" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" id="main">
+  <!-- buscador -->
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+  <ion-row>
+    <ion-col>
+      <h3 color="tertiary"><b>Categorias </b><ion-icon name="gift"></ion-icon></h3>
+    </ion-col>
+  </ion-row>
+  <!-- end buscador -->
+    <!-- slides -->
+  <ion-slides pager="false" [options]="slideOptions" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide class="slide-1" *ngFor="let n of categorias">
+      <ion-card mode="ios">
+        <img src="{{n.imagen}}">
+       <ion-card-header>
+          <ion-card-title>{{n.titulo}}</ion-card-title>
+          <ion-icon [name]="n.icons"></ion-icon>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <!-- end slides -->
+    <!-- scroll -->
+          <ion-list>
+            <ion-row>
+                <ion-col>
+                    <ion-card *ngFor="let n of [1,1,1,1,1]">
+                        <ion-card-header>
+                          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                          <ion-card-title>Card Title</ion-card-title>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                          Keep close to Nature's heart... and break clear away, once in awhile,
+                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                        </ion-card-content>
+                      </ion-card>
+                </ion-col>
+
+              <ion-col>
+                  <ion-card *ngFor="let n of [1,1,1,1,1]">
+                      <ion-card-header>
+                        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                        <ion-card-title>Card Title</ion-card-title>
+                      </ion-card-header>
+                    
+                      <ion-card-content>
+                        Keep close to Nature's heart... and break clear away, once in awhile,
+                        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                      </ion-card-content>
+                    </ion-card>
+              </ion-col>
+            </ion-row>     
+          </ion-list>
+          <!-- end scroll -->
+<!--         
+          <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll> -->
+        
+</ion-content>
